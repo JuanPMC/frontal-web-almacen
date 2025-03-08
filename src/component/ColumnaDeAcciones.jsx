@@ -5,7 +5,7 @@ const ColumnaDeAcciones = ({ data, deleteAction, updateRoute, event}) => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div>
       <Button
         size="xs"
         colorScheme="red"
@@ -24,7 +24,7 @@ const ColumnaDeAcciones = ({ data, deleteAction, updateRoute, event}) => {
       >
         Actualizar
       </Button>
-    </>
+    </div>
   );
 };
 
