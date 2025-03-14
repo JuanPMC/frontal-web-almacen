@@ -18,8 +18,9 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 10  # Match your local Node.js version here
+        node-version: 16  # Match your local Node.js version here
         cache: 'npm'
 
+    - run: node -v  # Verify Node.js version
     - run: npm install --force
     - run: npm run build
