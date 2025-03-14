@@ -7,14 +7,13 @@ const ColumnaDeAcciones = ({ data, deleteAction, updateRoute, event}) => {
   return (
     <div>
       <Button
+        name="Eliminar"
         size="xs"
         colorScheme="red"
         onClick={() => {
           deleteAction(data.id).then(()=>{event(prevState => !prevState)}); // Call the passed delete action
         }}
-      >
-        Eliminar
-      </Button>
+      >Eliminar</Button>
       <Button
         size="xs"
         colorScheme="blue"
