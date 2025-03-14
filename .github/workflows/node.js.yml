@@ -26,11 +26,10 @@ jobs:
     - run: npm test
     
     # Upload the build output as an artifact (dist directory)
-    - name: Upload build artifact
-      uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
-        name: build-output  # The name of the artifact
-        path: ./dist        # Path to your build directory
+        name: dist_folder
+        path: ./dist
 
   deploy:
     runs-on: ubuntu-latest
@@ -40,9 +39,9 @@ jobs:
     
     # Download the artifact from the previous job
     - name: Download build artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
-        name: build-output  # This must match the name used in the upload step
+        name: dist_folder  # This must match the name used in the upload step
     
     # Continue deployment steps
     - run: echo "Setting up NodeJs"
