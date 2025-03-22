@@ -11,9 +11,7 @@ export default function ListadoDocumentos({ idproducto }) {
   const gridRef = useRef();
   const [botonpulsado, setbotonPulsado] = useState();
 
-  const updateRouteDocumento = (data) => {
-    return `/inventario/${idproducto.idproducto}/documento/${data.id}/update?titulo=${data.titulo}&fecha=${data.fecha}&documento=${data.documento}&idDocumento=${data.id}`;
-  };
+  
 
   const handleDelete = async (id) => {
     try {
@@ -29,7 +27,8 @@ export default function ListadoDocumentos({ idproducto }) {
       <ColumnaDeAcciones
         data={p.data}
         deleteAction={() => handleDelete(p.data.id)}
-        updateRoute={updateRouteDocumento}
+        update={false}
+        download={true}
       />
     );
   };
