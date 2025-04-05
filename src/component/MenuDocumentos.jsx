@@ -34,7 +34,7 @@ export default function MenuDocumentos(id) {
         placement="left"
         onClose={onClose}
         finalFocusRef={btnRef}
-        size={"full"}
+        size={"lg"}
       >
         <DrawerOverlay />
         <DrawerContent>

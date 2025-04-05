@@ -37,13 +37,16 @@ export default function ListadoDocumentos({ idproducto }) {
     {
       field: "id",
       editable: false,
+      maxWidth: "60",
     },
     {
       field: "titulo",
       editable: false,
+      maxWidth: "120",
+      
     },
-    { field: "fecha", editable: false },
-    { field: "documento", editable: true },
+    { field: "fecha", editable: false,maxWidth: "110", },
+    { field: "documento", editable: false,maxWidth: "120", },
     {
       cellRenderer: ColunaAccionesAlmacen,
       filter: "agTextColumnFilter",

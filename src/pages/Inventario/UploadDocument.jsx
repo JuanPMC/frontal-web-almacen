@@ -1,10 +1,22 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
   Container,
-  Center
+  Input,
+  VStack,
+  Flex,
+  Spacer,
+  Heading,
+  HStack,
+  Divider,
+  Text,
 } from "@chakra-ui/react";
 import { addListadodocumentos } from "../../datos/listadodocumentos";
+import { TfiUpload } from "react-icons/tfi";
 
 export default function UploadDocument() {
   const { id } = useParams(); // Get the id value from the URL
@@ -45,67 +57,124 @@ export default function UploadDocument() {
       id="almac"
       pl="10px"
       pr="10px"
-      pt="100"
+      pt="120"
       as="section"
-      maxWidth="50%"
+      maxWidth="100%"
       maxHeight="100%"
+      centerContent
     >
-      <Center height="20px"></Center>
-      <div className="ag-theme-quartz" style={{ height: "700px" }}>
-        <div className="p-4 max-w-md mx-auto border rounded shadow">
-          <h2 className="text-lg font-bold mb-4">Upload a File</h2>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="titulo">Título:</label>
-            <input
+    <Box borderWidth="2px" borderColor="blue.900" width={1000}>
+    <Box
+          textAlign="center"
+          fontSize={28}
+          pb="1"
+          bg="blue.900"
+          color="yellow"
+        >
+          <Flex p="2">
+            
+            <Spacer />
+            <Text textAlign="center" fontSize={28}>
+              Subir Documento
+            </Text>
+            <Spacer />
+            <button onClick={() => navigate(-1)}>{} ↩️</button>
+          </Flex>
+        </Box>
+      <Divider mb="3" />
+      <form onSubmit={handleSubmit}>
+        <VStack spacing={6} align="stretch">
+        <HStack spacing={4} mb={3}>
+          <FormControl 
+          borderColor="blue.900"
+          pl="10px"
+          width={300}
+          isRequired
+          >
+            <FormLabel htmlFor="titulo">
+              <Text fontWeight="bold">Título</Text>
+            </FormLabel>
+            <Input
               type="text"
               id="titulo"
               name="titulo"
               value={formData.titulo}
               onChange={handleChange}
-              required
+              placeholder="Ingrese el título"
+              focusBorderColor="blue.500"
             />
-            <br />
-            <br />
-
-            <label htmlFor="documento">Documento:</label>
-            <input
+          </FormControl>
+          <FormControl
+              borderColor="blue.900"
+              pl="10px"
+              width={450}
+              isRequired
+            >
+              <FormLabel htmlFor="documento">
+              <Text fontWeight="bold">Documento</Text>
+            </FormLabel>
+            <Input
               type="text"
               id="documento"
               name="documento"
               value={formData.documento}
               onChange={handleChange}
-              required
+              placeholder="Ingrese el nombre del documento"
+              focusBorderColor="blue.500"
             />
-            <br />
-            <br />
+            </FormControl>
 
-            <label htmlFor="fecha">Fecha:</label>
-            <input
+          
+
+          <FormControl 
+          borderColor="blue.900"
+          pl="10px"
+          width={280}
+          isRequired>
+            <FormLabel htmlFor="fecha">
+              <Text fontWeight="bold">Fecha</Text>
+            </FormLabel>
+            <Input
               type="date"
               id="fecha"
               name="fecha"
               value={formData.fecha}
               onChange={handleChange}
-              required
+              focusBorderColor="blue.500"
             />
-            <br />
-            <br />
+          </FormControl>
 
-            <label htmlFor="datos_del_documento">Datos del Documento:</label>
-            <input
+          <FormControl 
+          borderColor="blue.900"
+          pl="10px"
+          width={370}
+          isRequired>
+            <FormLabel htmlFor="datos_del_documento">
+              <Text fontWeight="bold">Archivo</Text>
+            </FormLabel>
+            <Input
               type="file"
               id="datos_del_documento"
               name="datos_del_documento"
               onChange={handleFileChange}
-              required
+              focusBorderColor="blue.500"
             />
-            <br />
-            <br />
-
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      </div>
+          </FormControl>
+          </HStack>
+          <HStack justify="center" spacing={6} mt="4">
+            <Button 
+            colorScheme="blue"
+            size="lg" 
+            type="submit"
+            variant="outline"
+            leftIcon={< TfiUpload/>}
+            >
+              Subir
+            </Button>
+          </HStack>
+        </VStack>
+      </form>
+    </Box>
     </Container>
   );
 }
